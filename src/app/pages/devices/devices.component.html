@@ -1,0 +1,20 @@
+<div>
+  <br>
+<!--  <button type="button" (click)="addNewDevice()">Add device</button><br>-->
+  <div>Devices</div>
+  <div *ngFor="let device of devicesList">
+    <app-device-cell [device]="device"
+                     (onEditAction)="editDevice($event)"
+                     (onDeleteAction)="deleteDevice($event)">
+
+    </app-device-cell>
+  </div>
+  <div>
+    <app-device-edit [edit]="editMode"
+                     [device]="selectedDevice"
+                     (confAct)="editMode ? updateDevice($event): createDevice($event)">
+
+    </app-device-edit>
+  </div>
+</div>
+

@@ -1,0 +1,18 @@
+<div>
+  <div>Clients</div>
+  <button type="button" (click)="addNewUser()">Add client</button>
+  <div *ngFor="let user of usersList">
+    <app-client-cell [client]="user"
+                     (onEditAction)="editUser($event)"
+                     (onDeleteAction)="deleteUser($event)">
+
+    </app-client-cell>
+  </div>
+  <div>
+    <app-client-edit [edit]="editMode"
+                     [client]="selectedUser"
+                     (confAct)="editMode ? updateUser($event): createUser($event)">
+
+    </app-client-edit>
+  </div>
+</div>

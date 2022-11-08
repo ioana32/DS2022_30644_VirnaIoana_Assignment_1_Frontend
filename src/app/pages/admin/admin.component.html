@@ -1,0 +1,17 @@
+<div class="split left">
+  <div class="centered">
+    <button [class.selected]="device" type="button" (click)="onDevices()">Show devices</button>
+      <div *ngIf="device">
+        <app-devices></app-devices>
+      </div>
+  </div>
+</div>
+
+<div class="split right">
+  <div class="centered">
+    <button [class.selected]="users" type="button" (click)="onUsers()">Show clients</button>
+    <div  *ngIf="users">
+      <app-clients></app-clients>
+    </div>
+  </div>
+</div>

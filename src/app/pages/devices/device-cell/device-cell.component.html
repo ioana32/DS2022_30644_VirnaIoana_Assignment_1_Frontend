@@ -1,0 +1,18 @@
+<div>
+  <ng-container>
+    <div class="border">
+      <span> Id {{ device.id }}</span><br>
+    <span>Description {{ device.description }} </span><br>
+    <span>Address {{ device.address }} </span><br>
+    <span>Maximum Energy {{ device.maxEnergy }} </span><br>
+<!--    <span>ClientId {{ device.user.id }} </span><br>-->
+<!--      <span>some</span>-->
+<!--      to user -->
+      <div>
+        <button type="button" (click)="onEdit()">Edit</button>
+        <button type="button" (click)="onDelete()">Delete</button>
+      </div>
+    </div>
+  </ng-container>
+
+</div>
