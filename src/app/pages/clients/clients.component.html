@@ -1,6 +1,6 @@
 <div>
   <div>Clients</div>
-  <button type="button" (click)="addNewUser()">Add client</button>
+<!--  <button type="button" (click)="addNewUser()">Add client</button>-->
   <div *ngFor="let user of usersList">
     <app-client-cell [client]="user"
                      (onEditAction)="editUser($event)"

@@ -1,7 +1,7 @@
-<div>
+<div >
   <br>
 <!--  <button type="button" (click)="addNewDevice()">Add device</button><br>-->
-  <div>Devices</div>
+  <div id="myId" >Devices</div>
   <div *ngFor="let device of devicesList">
     <app-device-cell [device]="device"
                      (onEditAction)="editDevice($event)"

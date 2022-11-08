@@ -5,7 +5,7 @@
     <span>Description {{ device.description }} </span><br>
     <span>Address {{ device.address }} </span><br>
     <span>Maximum Energy {{ device.maxEnergy }} </span><br>
-    <span>ClientId {{ device?.userId }} </span><br>
+    <span>ClientId {{ device.user.id ? device.user.id : null }} </span><br>
 <!--      <span>some</span>-->
 <!--      to user -->
       <div>

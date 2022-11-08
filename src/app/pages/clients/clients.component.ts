@@ -77,11 +77,13 @@ export class ClientsComponent implements OnInit, OnDestroy{
   }
 
   updateUser(event:any){
-    this.usersService.updateUser(event.id,event).subscribe(
+    this.usersService.updateUser(this.selectedUser.id,event).subscribe(
       (res) => {this.usersList[this.usersList.findIndex(x=>x.id === this.selectedUser.id)] = res;},
       (error) =>{console.log("Can't update");}
 
     )
+
+    this.editMode = false;
   }
 
   addNewUser(){

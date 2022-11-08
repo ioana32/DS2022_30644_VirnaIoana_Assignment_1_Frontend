@@ -28,7 +28,6 @@ export class ClientEditComponent implements OnInit{
     }
     if(!this.edit)
       this.initializeClientForm();
-
   }
 
   private initializeClientForm() {

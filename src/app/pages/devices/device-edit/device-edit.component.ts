@@ -8,11 +8,12 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 })
 export class DeviceEditComponent implements OnInit{
   ngOnInit(): void {
+    this.initializeClientForm();
   }
 
   @Input() edit! : boolean;
   @Input() device! :DeviceModel;
-  @Output() confAct = new EventEmitter;
+  @Output() confAct = new EventEmitter();
   deviceForm! : FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
@@ -23,7 +24,7 @@ export class DeviceEditComponent implements OnInit{
     if(changes.device?.currentValue) {
       this.deviceForm.patchValue({
         deviceId:changes.device?.currentValue.id,
-        userId: changes.device?.currentValue.userId,
+        userId: (changes.device?.currentValue.user.id ? changes.device?.currentValue.user.id : null),
         address:  changes.device?.currentValue.address,
         description:  changes.device?.currentValue.description,
         maxEnergy: changes.device?.currentValue.maxEnergy
@@ -36,14 +37,15 @@ export class DeviceEditComponent implements OnInit{
 
   private initializeClientForm() {
     this.deviceForm = this.formBuilder.group({
-      id:["", Validators.required],
+      deviceId:["", Validators.required],
       userId:["", Validators.required],
       address: ["", Validators.required],
       description: ["", Validators.required],
       maxEnergy: ["", Validators.required],
       averageEnergyConsumption: ["", Validators.required]
     })
-    this.deviceForm.controls['id'].disable();
+    this.deviceForm.controls['deviceId'].disable();
+    this.deviceForm.controls['userId'].disable();
   }
 
   onSubmit(){

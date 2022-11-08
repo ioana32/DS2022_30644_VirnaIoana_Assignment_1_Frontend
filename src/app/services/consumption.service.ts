@@ -14,40 +14,40 @@ class CconsumptionModel {
 export class ConsumptionService {
   constructor(private httpClient: HttpClient) {
   }
-
+  apiUrltest ="http://localhost:8080";
   getConsumption(consumptionId: number):Observable<any>{
     return this.httpClient.get<any>(
-      `${environment.apiUrl}/consumptions/${consumptionId}`
+      `${this.apiUrltest}/consumptions/${consumptionId}`
     );
   }
 
   createConsumption(body: ConsumptionModel):Observable<ConsumptionModel>{
     return this.httpClient.post<any>(
-      `${environment.apiUrl}/consumptions`,body
+      `${this.apiUrltest}/consumptions`,body
     );
   }
 
   updateConsumption(consumptionId:number, body: ConsumptionModel):Observable<ConsumptionModel>{
     return this.httpClient.patch<any>(
-      `${environment.apiUrl}/consumptions/${consumptionId}`,body
+      `${this.apiUrltest}/consumptions/${consumptionId}`,body
     );
   }
 
   deleteConsumption(consumptionId: number): Observable<ConsumptionModel> {
     return this.httpClient.delete<any>(
-      `${environment.apiUrl}/consumptions/${consumptionId}`
+      `${this.apiUrltest}/consumptions/${consumptionId}`
     );
   }
 
   getConsumptions(): Observable<any>{
     return this.httpClient.get<any>(
-      `${environment.apiUrl}/consumptions`
+      `${this.apiUrltest}/consumptions`
     );
   }
 
   getConsumptionsByDevice(deviceId: number): Observable<any>{
     return this.httpClient.get<any>(
-      `${environment.apiUrl}/consumptions/device/${deviceId}`
+      `${this.apiUrltest}/consumptions/device/${deviceId}`
     );
   }
 

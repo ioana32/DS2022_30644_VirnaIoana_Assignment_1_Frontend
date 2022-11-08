@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import {Observable} from "rxjs";
-import {environment} from "../../environments/environment";
+import { environment} from "../../environments/environment";
 import {UsersModel} from "../models/users.model";
 
 
@@ -11,46 +11,47 @@ import {UsersModel} from "../models/users.model";
 export class UsersService {
   constructor(private httpClient: HttpClient) {
   }
+  apiUrltest ="http://localhost:8080";
 
   getUser(userId: number):Observable<any>{
     return this.httpClient.get<any>(
-      `${environment.apiUrl}/users/${userId}`
+      `${(this.apiUrltest)}/users/${userId}`
     );
   }
 
   createUser(body: UsersModel):Observable<UsersModel>{
     return this.httpClient.post<any>(
-      `${environment.apiUrl}/users`,body
+      `${this.apiUrltest}/users`,body
     );
   }
 
   updateUser(userId:number, body: UsersModel):Observable<UsersModel>{
     return this.httpClient.patch<any>(
-      `${environment.apiUrl}/users/${userId}`,body
+      `${this.apiUrltest}/users/${userId}`,body
     );
   }
 
   deleteUser(userId: number): Observable<UsersModel> {
     return this.httpClient.delete<any>(
-      `${environment.apiUrl}/users/${userId}`
+      `${this.apiUrltest}/users/${userId}`
     );
   }
 
   getClients(): Observable<any>{
     return this.httpClient.get<any>(
-      `${environment.apiUrl}/users/clients`
+      `${this.apiUrltest}/users/clients`
     );
   }
 
   getUsers(): Observable<any>{
     return this.httpClient.get<any>(
-      `${environment.apiUrl}/users`
+      `${this.apiUrltest}/users`
     );
   }
 
   getUserByName(name: string): Observable<UsersModel> {
     return this.httpClient.get<any>(
-      `${environment.apiUrl}/users/${name}`
+      `${this.apiUrltest}/users/${name}`
     );
   }
 

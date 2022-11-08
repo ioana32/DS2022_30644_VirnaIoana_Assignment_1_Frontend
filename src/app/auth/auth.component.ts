@@ -5,7 +5,7 @@ import {UsersModel} from "../models/users.model";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {AuthService} from "../services/auth.service";
-import {environment} from "../../environments/environment";
+import { environment} from "../../environments/environment";
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -15,6 +15,7 @@ export class AuthComponent implements OnInit{
 
   model: any={};
   sessionId: any="";
+  apiUrltest ="http://localhost:8080";
 
   constructor(private httpClient: HttpClient,
               private router: Router) {
@@ -29,7 +30,7 @@ export class AuthComponent implements OnInit{
   }
 
   login(){
-      this.httpClient.post<any>(`${environment.apiUrl}/users`, {
+      this.httpClient.post<any>(`${this.apiUrltest}/users`, {
         unsername: this.model.userName,
         password: this.model.password
       }).subscribe(res => {

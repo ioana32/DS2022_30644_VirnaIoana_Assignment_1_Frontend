@@ -6,6 +6,7 @@ import {
 import {DeviceModel} from "../../models/device.model";
 import {Subscription} from "rxjs";
 import {DeviceService} from "../../services/device.service";
+
 @Component({
   selector: 'app-devices',
   templateUrl: './devices.component.html',
@@ -26,6 +27,7 @@ export class DevicesComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.getDevices();
+    //Scrollbar.init(document.querySelector("#myId"))
   }
 
   getDevices(){
@@ -86,11 +88,12 @@ export class DevicesComponent implements OnInit, OnDestroy{
   }
 
   updateDevice(event:any){
-    this.deviceService.updateDevice(event.id,event).subscribe(
+    this.deviceService.updateDevice(this.selectedDevice.id,event).subscribe(
       (res) => {this.devicesList[this.devicesList.findIndex(x=>x.id === this.selectedDevice.id)] = res;},
       (error) =>{console.log("Can't update");}
 
     )
+    this.editMode = false;
   }
 
   addNewDevice(){
