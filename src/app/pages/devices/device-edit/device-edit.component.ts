@@ -23,7 +23,7 @@ export class DeviceEditComponent implements OnInit{
     if(changes.device?.currentValue) {
       this.deviceForm.patchValue({
         deviceId:changes.device?.currentValue.id,
-        // userId: changes.device?.currentValue.user.id,
+        userId: changes.device?.currentValue.userId,
         address:  changes.device?.currentValue.address,
         description:  changes.device?.currentValue.description,
         maxEnergy: changes.device?.currentValue.maxEnergy

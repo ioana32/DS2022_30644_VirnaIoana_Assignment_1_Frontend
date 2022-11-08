@@ -5,9 +5,5 @@ export class DeviceModel {
   description = "";
   address="";
   maxEnergy: number = 0;
-  user?: UsersModel = {
-    id:0,
-    name:"",
-    role:false,
-    password:"",}
+  userId?:number =0;
 }
