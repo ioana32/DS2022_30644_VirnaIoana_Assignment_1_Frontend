@@ -1,3 +1,4 @@
+<div>
 <div class="split left">
   <div class="centered">
     <button [class.selected]="device" type="button" (click)="onDevices()">Show devices</button>
@@ -18,4 +19,13 @@
   <div>
   <button type="button" (click)="logOut()">Log Out</button>
   </div>
+</div>
+
+<div class="centered">
+  <div *ngIf="loged">
+    <button [class.selected]="loged" type="button" (click)="logOut()">LogOut</button>
+  </div>
+</div>
+
+
 </div>
