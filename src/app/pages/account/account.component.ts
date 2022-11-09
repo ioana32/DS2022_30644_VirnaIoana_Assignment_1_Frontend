@@ -47,13 +47,13 @@ export class AccountComponent implements OnInit{
     )
   }
 
+
   showCons(){}
 
   logOut(){
     this.router.navigate(['/auth']);
     this.loged=false;
   }
-
 
 }
 

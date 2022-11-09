@@ -9,8 +9,7 @@ export class AdminComponent implements OnInit{
 
   device?: boolean ;
   users?: boolean ;
-
-  loged: boolean=true;
+  loged: boolean =true;
 
   constructor(private router: Router) {
 

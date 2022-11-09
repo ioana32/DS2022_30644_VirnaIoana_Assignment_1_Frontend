@@ -16,6 +16,7 @@ export class AuthComponent implements OnInit{
   // name: String="";
   user: any={};
   apiUrltest ="http://localhost:8080";
+
   loged:boolean =true;
 
   constructor(private authService: AuthService,private router: Router,) {
@@ -26,7 +27,6 @@ export class AuthComponent implements OnInit{
   }
 
   onSubmit(){
-
    console.log(this.user);
    this.authService.loginUser(this.user).subscribe(data=>{
      this.user=data;
@@ -35,6 +35,8 @@ export class AuthComponent implements OnInit{
    },error =>
      alert("User not found"));
   }
+
+
 
   afterLogIn(data: UsersModel){
     console.log(data.role)

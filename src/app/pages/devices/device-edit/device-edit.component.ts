@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from "@angular/core";
 import {DeviceModel} from "../../../models/device.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-device-edit',
   templateUrl: './device-edit.component.html',
@@ -15,12 +16,11 @@ export class DeviceEditComponent implements OnInit{
   @Input() device! :DeviceModel;
   @Output() confAct = new EventEmitter();
   deviceForm! : FormGroup;
-
   constructor(private formBuilder: FormBuilder) {
   }
 
   ngOnChanges(changes: any):void {
-    //console.log(changes);
+    console.log(changes);
     if(changes.device?.currentValue) {
       this.deviceForm.patchValue({
         deviceId:changes.device?.currentValue.id,
@@ -56,5 +56,7 @@ export class DeviceEditComponent implements OnInit{
   resetForm(){
     this.deviceForm.reset();
   }
+
+
 }
 
