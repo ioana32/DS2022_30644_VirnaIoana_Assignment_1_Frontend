@@ -22,6 +22,7 @@ export class AuthComponent implements OnInit{
   }
 
   ngOnInit() {
+    this.loged = true;
   }
 
   onSubmit(){
@@ -34,10 +35,7 @@ export class AuthComponent implements OnInit{
      alert("User not found"));
   }
 
-  logOut(){
-    this.router.navigate(['/auth']);
-    this.loged=true;
-  }
+
 
   afterLogIn(data: UsersModel){
     console.log(data.role)

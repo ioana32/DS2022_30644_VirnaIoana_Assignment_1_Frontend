@@ -1,4 +1,7 @@
 import {Component, OnDestroy, OnInit} from "@angular/core";
+import {DeviceService} from "../../services/device.service";
+import {ConsumptionService} from "../../services/consumption.service";
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -8,6 +11,10 @@ export class AdminComponent implements OnInit{
 
   device?: boolean ;
   users?: boolean ;
+  loged: boolean =true;
+
+  constructor(private router: Router) {
+  }
 
   ngOnInit(): void {
     this.device=false;
@@ -26,6 +33,11 @@ export class AdminComponent implements OnInit{
         this.users = true;
       else
         this.users=false;
+  }
+
+  logOut(){
+    this.router.navigate(['/auth']);
+    this.loged=false;
   }
 }
 
