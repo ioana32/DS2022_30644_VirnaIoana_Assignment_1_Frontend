@@ -1,4 +1,5 @@
 import {Component, OnDestroy, OnInit} from "@angular/core";
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -9,9 +10,17 @@ export class AdminComponent implements OnInit{
   device?: boolean ;
   users?: boolean ;
 
+  loged: boolean=true;
+
+  constructor(private router: Router) {
+
+  }
+
+
   ngOnInit(): void {
     this.device=false;
     this.users=false;
+    this.loged=true;
   }
 
   onDevices(){
@@ -26,6 +35,11 @@ export class AdminComponent implements OnInit{
         this.users = true;
       else
         this.users=false;
+  }
+
+  logOut(){
+    this.router.navigate(['/auth']);
+    this.loged=false;
   }
 }
 

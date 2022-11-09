@@ -11,6 +11,12 @@
 
               </div>
       </div>
+
+
+
+    </div>
+    <div *ngIf="loged">
+      <button [class.selected]="loged" type="button" (click)="logOut()">LogOut</button>
     </div>
   </div>
 </div>
