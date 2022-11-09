@@ -33,6 +33,7 @@ export class DevicesComponent implements OnInit, OnDestroy{
   getDevices(){
     this.$devicesList=this.deviceService.getDevices().subscribe(
       (res) => {if(res) {
+        // console.log(res);
         this.devicesList=res;
       }
       console.log(this.devicesList);
@@ -54,19 +55,6 @@ export class DevicesComponent implements OnInit, OnDestroy{
     )
   }
 
-  getDevicesByUser(userId: number){
-    this.$devicesList=this.deviceService.getDeviceByUser(userId).subscribe(
-      (res) => {if(res) {
-        this.devicesList=res;
-      }
-        // console.log(res);
-      },
-      (error: any)=>{
-        console.log("Nu exista deviceuri");
-      }
-
-    )
-  }
 
   createDevice(event: any){
     this.deviceService.createDevice(event).subscribe(

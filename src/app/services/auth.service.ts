@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
+import {UsersModel} from "../models/users.model";
 
 @Injectable({
   providedIn: "root"
@@ -10,22 +11,15 @@ import {environment} from "../../environments/environment";
 export class AuthService {
   model: any={};
   sessionId: any ="";
-  constructor(private httpClient: HttpClient,
-              private router: Router) {
+  constructor(private httpClient: HttpClient) {
   }
 
-  redirectUrl:string = "/clients";
+  apiUrl ="http://localhost:8080";
 
-  // login():  {
-  //   // const body = new HttpParams()
-  //   //   .set("username", loginData.username)
-  //   //   .set("password", loginData.password);
-  //   // return this.httpClient.post<any>(`${environment.apiUrl}/users`, loginData);
-  //   this.httpClient.post<any>(`${environment.apiUrl}/users`, {
-  //     userName: this.model.userName,
-  //     password: this.model.password
-  //   })
-  // }
+  loginUser (user: any): Observable<any> {
+    console.log(user)
+   return this.httpClient.post(`${this.apiUrl}/login`,user);
+  }
 
 }
 

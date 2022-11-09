@@ -4,10 +4,6 @@ export class UsersModel {
   role: boolean=false;
   password: string="";
 
-  constructor(user: any) {
-    this.name = user.name;
-    this.role = user.role;
-    this.password = user.password;
-  }
+
 
 }

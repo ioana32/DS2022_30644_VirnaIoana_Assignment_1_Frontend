@@ -13,37 +13,36 @@ import { environment} from "../../environments/environment";
 })
 export class AuthComponent implements OnInit{
 
-  model: any={};
-  sessionId: any="";
+  // name: String="";
+  user: any={};
   apiUrltest ="http://localhost:8080";
 
-  constructor(private httpClient: HttpClient,
-              private router: Router) {
+  constructor(private authService: AuthService,private router: Router,) {
   }
 
   ngOnInit() {
   }
 
-  onSubmit(form: NgForm){
+  onSubmit(){
 
-    form.reset();
+   console.log(this.user);
+   this.authService.loginUser(this.user).subscribe(data=>{
+     this.user=data;
+     this.afterLogIn(this.user);
+   },error =>
+     alert("User not found"));
   }
 
-  login(){
-      this.httpClient.post<any>(`${this.apiUrltest}/users`, {
-        unsername: this.model.userName,
-        password: this.model.password
-      }).subscribe(res => {
-        if(res){
-          this.sessionId=res.sessionId;
-
-          sessionStorage.setItem('token', this.sessionId);
-          this.router.navigate(['']);
-        } else {
-          alert("Authentification failed.")
-        }
-      })
+  afterLogIn(data: UsersModel){
+    console.log(data.role)
+    if(data.role===true)
+      this.router.navigate(['/admin']);
+    else {
+      this.router.navigate(['/account']);
+      localStorage.setItem('id',String(data.id));
+    }
 
   }
+
 }
 
