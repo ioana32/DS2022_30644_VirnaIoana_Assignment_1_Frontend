@@ -1,15 +1,16 @@
 <div>
   <div class="split left">
     <div class="centered">
-  <div *ngFor="let device of devicesList">
-    <div  class="border">
-      <span> Id {{ device.id }}</span><br>
-      <span>Description {{ device.description }} </span><br>
-      <span>Address {{ device.address }} </span><br>
-      <span>Maximum Energy {{ device.maxEnergy }} </span><br>
-      <button [class.selected]="consShow" type="button" (click)="showCons()">Show consumption</button>
+      <div *ngFor="let device of devicesList">
+              <div  class="border">
+                <span> Id {{ device.id }}</span><br>
+                <span>Description {{ device.description }} </span><br>
+                <span>Address {{ device.address }} </span><br>
+                <span>Maximum Energy {{ device.maxEnergy }} </span><br>
+                <button [class.selected]="consShow" type="button" (click)="showCons()">Show consumption</button>
 
+              </div>
+      </div>
     </div>
-  </div></div>
-
+  </div>
 </div>

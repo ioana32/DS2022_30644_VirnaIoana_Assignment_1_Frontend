@@ -26,9 +26,10 @@ export class DeviceService {
     );
   }
 
-  updateDevice(deviceId:number, body: DeviceModel):Observable<DeviceModel>{
+  updateDevice(deviceId:number, userId:number, body: DeviceModel):Observable<DeviceModel>{
+    console.log(body);
     return this.httpClient.patch<any>(
-      `${this.apiUrltest}/devices/${deviceId}`,body
+      `${this.apiUrltest}/devices/${deviceId}/${userId}`,body
     );
   }
 
