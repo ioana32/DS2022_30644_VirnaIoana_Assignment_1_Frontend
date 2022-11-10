@@ -2,6 +2,7 @@
   <div class="split left">
     <div class="centered">
       <div *ngFor="let device of devicesList">
+
               <div  class="border">
                 <span> Id {{ device.id }}</span><br>
                 <span>Description {{ device.description }} </span><br>
@@ -13,10 +14,11 @@
       </div>
 
 
-
     </div>
     <div *ngIf="loged">
       <button [class.selected]="loged" type="button" (click)="logOut()">LogOut</button>
     </div>
   </div>
 </div>
+
+

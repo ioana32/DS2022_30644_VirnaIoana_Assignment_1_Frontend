@@ -1,4 +1,5 @@
 import {Component, OnDestroy, OnInit} from "@angular/core";
+
 import {Router} from "@angular/router";
 @Component({
   selector: 'app-admin',
@@ -9,6 +10,10 @@ export class AdminComponent implements OnInit{
 
   device?: boolean ;
   users?: boolean ;
+  loged: boolean =true;
+
+  constructor(private router: Router) {
+  }
 
   loged: boolean=true;
 

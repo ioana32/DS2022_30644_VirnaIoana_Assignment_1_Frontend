@@ -18,6 +18,9 @@ export class AccountComponent implements OnInit{
   consShow?: boolean;
   loged: boolean=true;
 
+  loged: boolean =true;
+
+
   ngOnInit(): void {
     this.getDevicesByUser(Number(localStorage.getItem('id')))
     // console.log(localStorage.getItem('id'));
@@ -52,7 +55,6 @@ export class AccountComponent implements OnInit{
   logOut(){
     this.router.navigate(['/auth']);
     this.loged=false;
-  }
 
 
 }
