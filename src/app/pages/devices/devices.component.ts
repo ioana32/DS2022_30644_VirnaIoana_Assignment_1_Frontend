@@ -76,7 +76,7 @@ export class DevicesComponent implements OnInit, OnDestroy{
   }
 
   updateDevice(event:any){
-    this.deviceService.updateDevice(this.selectedDevice.id,event).subscribe(
+    this.deviceService.updateDevice(this.selectedDevice.id,event.userId,event).subscribe(
       (res) => {this.devicesList[this.devicesList.findIndex(x=>x.id === this.selectedDevice.id)] = res;},
       (error) =>{console.log("Can't update");}
 

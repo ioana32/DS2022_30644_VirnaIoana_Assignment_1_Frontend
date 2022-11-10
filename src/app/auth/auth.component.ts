@@ -16,11 +16,13 @@ export class AuthComponent implements OnInit{
   // name: String="";
   user: any={};
   apiUrltest ="http://localhost:8080";
+  loged:boolean =true;
 
   constructor(private authService: AuthService,private router: Router,) {
   }
 
   ngOnInit() {
+    this.loged=true;
   }
 
   onSubmit(){
@@ -29,6 +31,7 @@ export class AuthComponent implements OnInit{
    this.authService.loginUser(this.user).subscribe(data=>{
      this.user=data;
      this.afterLogIn(this.user);
+     this.loged=false;
    },error =>
      alert("User not found"));
   }
@@ -41,6 +44,7 @@ export class AuthComponent implements OnInit{
       this.router.navigate(['/account']);
       localStorage.setItem('id',String(data.id));
     }
+
 
   }
 

@@ -45,7 +45,7 @@ export class DeviceEditComponent implements OnInit{
       averageEnergyConsumption: ["", Validators.required]
     })
     this.deviceForm.controls['deviceId'].disable();
-   // this.deviceForm.controls['userId'].disable();
+    // this.deviceForm.controls['userId'].disable();
   }
 
   onSubmit(){

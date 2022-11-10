@@ -16,13 +16,15 @@ export class AccountComponent implements OnInit{
   devicesList: DeviceModel[]=[];
   $devicesList!: Subscription;
   consShow?: boolean;
+  loged: boolean=true;
 
   loged: boolean =true;
 
 
   ngOnInit(): void {
     this.getDevicesByUser(Number(localStorage.getItem('id')))
-    console.log(localStorage.getItem('id'));
+    // console.log(localStorage.getItem('id'));
+    this.loged=true;
   }
 
   constructor(private deviceService: DeviceService,
@@ -48,14 +50,12 @@ export class AccountComponent implements OnInit{
     )
   }
 
-  showCons(){
-    console.log("chart");
-  }
+  showCons(){}
 
   logOut(){
     this.router.navigate(['/auth']);
     this.loged=false;
-  }
+
 
 }
 

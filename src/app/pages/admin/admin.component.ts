@@ -1,6 +1,5 @@
 import {Component, OnDestroy, OnInit} from "@angular/core";
-import {DeviceService} from "../../services/device.service";
-import {ConsumptionService} from "../../services/consumption.service";
+
 import {Router} from "@angular/router";
 @Component({
   selector: 'app-admin',
@@ -16,9 +15,17 @@ export class AdminComponent implements OnInit{
   constructor(private router: Router) {
   }
 
+  loged: boolean=true;
+
+  constructor(private router: Router) {
+
+  }
+
+
   ngOnInit(): void {
     this.device=false;
     this.users=false;
+    this.loged=true;
   }
 
   onDevices(){
